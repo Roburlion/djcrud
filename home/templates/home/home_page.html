@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'home/favicon.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"><i class="material-icons ml-5">rocket_launch</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="">Create Rolls</a></li>
+                <li><a href="">Batch Sheets</a></li>
+                <li><a href="">Enter WIP</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="text-3xl font-bold">
+            Hello, World! Welcome to Djailwind!
+        </h1>
+
+        <a href="{% url 'log_button' %}" onclick="event.preventDefault(); fetch(this.href).then(() => location.reload());" class="waves-effect waves-light btn">button</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Button Log</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                {% for log in button_logs %}
+                    <tr>
+                        <td>{{ log }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td>No button presses logged yet.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
