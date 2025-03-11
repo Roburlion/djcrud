@@ -3,29 +3,14 @@
 {% block title %}Djailwind - HTMX{% endblock %}
 
 {% block content %}
-    <h3 class="text-3xl font-bold">
-        Hello, HTMX! Welcome to Djailwind!
-    </h3>
+<h3 class="text-3xl font-bold">
+    Hello, HTMX! Welcome to Djailwind!
+</h3>
 
-    <a href="{% url 'log_button' %}" onclick="event.preventDefault(); fetch(this.href).then(() => location.reload());" class="waves-effect waves-light btn">button</a>
+<a href="{% url 'log_htmx_button' %}" hx-get="{% url 'log_htmx_button' %}" hx-target="#button-log-table"
+    hx-swap="outerHTML" class="waves-effect waves-light btn">HTMX</a>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Button Log</th>
-            </tr>
-        </thead>
-    
-        <tbody>
-            {% for log in button_logs %}
-                <tr>
-                    <td>{{ log }}</td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td>No button presses logged yet.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+{% include 'home/_button_log_table.html' with button_logs=button_logs %}{% endblock %}
+{% block scripts %}
+<script src="https://unpkg.com/htmx.org@1.7.0"></script>
 {% endblock %}

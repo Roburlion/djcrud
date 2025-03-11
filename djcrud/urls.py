@@ -23,4 +23,5 @@ urlpatterns = [
     path('djfunky/', include('djfunky.urls')),
     path('', include('home.urls')),
     path('log-button/', views.log_button, name='log_button'),
+    path('log-htmx-button/', views.log_htmx_button, name='log_htmx_button'),
 ]

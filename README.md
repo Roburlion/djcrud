@@ -77,6 +77,31 @@ This is my mess for now, but if you want to jump in, feel free. Just don’t jud
 
 Let’s keep the vibes high and the errors low. Happy coding!
 
+# Change Log
+## 20250310
+What have we done!?
+
+We've (Sr. Grok and I) put in some base template goodness!
+
+Next stop: HTMX!
+
+The goal is to change tbe button to use HTMX to update the table without a refresh.
+
+Also want to limit the table to the 10 most recent presses.
+
+## 20250310 - Later that evening
+Holy fucking shit-sugary-goodness!!!  It's alive!!!
+
+HTMX and DRY _partial_templates!
+
+
+
+
+
+
+
+
+
 # Original ReadMe Blather
 This is a simple project.  Functionality first.  The problems that I have been running into is that I am too focused on the setup part, which is killing me.  I don't think it's bad, but I want to focus on some functionality first.  Focus on the building the thing.  Build some functionality, then add a scaffolding feature, then back to functionality.  Lets have fun with this.
 
@@ -103,3 +128,4 @@ I never quite know what is going on with the folder structure.  But I'm playing 
 (venv) djcrud> 
 (venv) djcrud> 
 ```
+

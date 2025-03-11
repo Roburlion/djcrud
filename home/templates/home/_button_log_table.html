@@ -1,0 +1,19 @@
+<!-- your_app/templates/your_app/_table_partial.html -->
+<table id="button-log-table">
+  <thead>
+      <tr>
+          <th>Button Log</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for log in button_logs %}
+          <tr>
+              <td>{{ log }}</td>
+          </tr>
+      {% empty %}
+          <tr>
+              <td>No button presses logged yet.</td>
+          </tr>
+      {% endfor %}
+  </tbody>
+</table>
