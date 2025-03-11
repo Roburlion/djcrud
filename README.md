@@ -94,11 +94,18 @@ Holy fucking shit-sugary-goodness!!!  It's alive!!!
 
 HTMX and DRY _partial_templates!
 
+### Next steps
+What's next?  The next things for this app is to think what the first things I will really need in the app.  For the Roll Tool, that has to be uploading a file.  I need to upload the aging file and then parse it with pandas.
 
+Which comes first, the model or the upload, and where are these in relationship to the cart?
 
+I guess the model would come first, and then pandas would populate the model.  Lets Grok it!
 
+Here is my main query so far
 
+[Grok on my app](https://grok.com/share/bGVnYWN5_005c0f86-c05a-453e-9014-61763834876a)
 
+The way forward to the "Hello, World!" version of this.  Something very simple.  Like uploading a series of datetimes into my existing button log model/table.  Then I can slowly expand on this before I get into anything crazy.
 
 
 
