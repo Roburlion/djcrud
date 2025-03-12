@@ -123,8 +123,27 @@ Dev plan
  - do the stuff above
 
 ## 20250312 @ 3am
-Upload page is up and running with a simple text placeholder.
+Upload page is up and running with a simple text placeholder.  What's next?  Add dropzone js and have a dummy place to upload a file.  Done, looks like shit, but it's there.
 
+I can go one of two ways, I can make it look better, then wire it up, or I can wire it up and then make it look better.
+
+I think I want to play a little.  Let me use one of those cards with the hover effect and then I'll wire it up.
+
+What is the next step?
+Put in a card.
+
+Such a pain in the ass, all of this damn CSS.
+
+## 20250312 @ 5am
+
+Ok, I have the dropzone in /upload_page.  Now I want to dump the rows to the console.
+
+## 20250312 @ 7am
+
+I am now able to add rows to the buttonlog table by dropping in excel files!
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 # Original ReadMe Blather
 This is a simple project.  Functionality first.  The problems that I have been running into is that I am too focused on the setup part, which is killing me.  I don't think it's bad, but I want to focus on some functionality first.  Focus on the building the thing.  Build some functionality, then add a scaffolding feature, then back to functionality.  Lets have fun with this.
