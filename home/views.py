@@ -39,3 +39,8 @@ def log_htmx_button(request):
     
     # For non-HTMX requests, return the full HTMX page
     return render(request, 'home/htmx_page.html', {'button_logs': button_logs})
+
+def upload_page(request):
+    # Get updated logs
+    button_logs = get_button_logs()
+    return render(request, 'home/upload_page.html')

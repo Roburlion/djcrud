@@ -122,6 +122,9 @@ Dev plan
  - setup dropzone.js
  - do the stuff above
 
+## 20250312 @ 3am
+Upload page is up and running with a simple text placeholder.
+
 -------------------------------------------------------------------------------
 # Original ReadMe Blather
 This is a simple project.  Functionality first.  The problems that I have been running into is that I am too focused on the setup part, which is killing me.  I don't think it's bad, but I want to focus on some functionality first.  Focus on the building the thing.  Build some functionality, then add a scaffolding feature, then back to functionality.  Lets have fun with this.
