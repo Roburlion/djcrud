@@ -107,8 +107,22 @@ Here is my main query so far
 
 The way forward to the "Hello, World!" version of this.  Something very simple.  Like uploading a series of datetimes into my existing button log model/table.  Then I can slowly expand on this before I get into anything crazy.
 
+## 20250312 @ 2am
+The plan is to crate a new page, upload_page.html, with a dropzone and button to upload files.  Once I have the upload, I'll dump the contents into the db.
 
+ - upload
+ - validate
+ - parse
+ - upload
+ -  - (I don't know what to do here, the goal is to manipulate and move as little data as possible.  Do I upload to a staging table and then use a sql query to write to the main table?  Do I figure out what and what not to upload in python?  If I did this, what data would I need to pull from the db to validate, and is the just going in circles?)
 
+Dev plan
+ - Create a new template
+ - Add a dropzone
+ - setup dropzone.js
+ - do the stuff above
+
+-------------------------------------------------------------------------------
 # Original ReadMe Blather
 This is a simple project.  Functionality first.  The problems that I have been running into is that I am too focused on the setup part, which is killing me.  I don't think it's bad, but I want to focus on some functionality first.  Focus on the building the thing.  Build some functionality, then add a scaffolding feature, then back to functionality.  Lets have fun with this.
 
