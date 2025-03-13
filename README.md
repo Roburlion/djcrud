@@ -142,6 +142,22 @@ Ok, I have the dropzone in /upload_page.  Now I want to dump the rows to the con
 
 I am now able to add rows to the buttonlog table by dropping in excel files!
 
+## 20250313 @ 3am
+
+The goal this morning is the be able to upload an aging file
+ - Create a new page
+ - New Model(s)
+   - Write to a log model to keep track of uploads
+ - New URL
+ - New View
+
+
+
+
+
+
+
+
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
