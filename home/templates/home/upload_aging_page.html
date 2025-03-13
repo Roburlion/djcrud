@@ -1,0 +1,87 @@
+{% extends "home/base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/dropzone@6.0.0-beta.2/dist/dropzone.css">
+<style>
+  .dropzone {
+    border: 2px dashed #007bff;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .dropzone:hover {
+    border-color: #0056b3;
+    background: #e9ecef;
+  }
+
+  .dz-message {
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+  }
+
+  .dz-preview {
+    margin: 10px;
+    display: inline-block;
+  }
+
+  .dz-success .dz-success-mark {
+    color: #28a745;
+  }
+
+  .dz-error .dz-error-mark {
+    color: #dc3545;
+  }
+
+  .dz-message i.material-icons {
+    font-size: 3rem;
+    
+  }
+</style>
+{% endblock %}
+
+{% block title %}Upload{% endblock %}
+
+{% block content %}
+<h3 class="text-3xl font-bold">
+  Upload Customer Aging Report
+</h3>
+
+
+
+<form action="customer_aging_upload" class="dropzone" id="my-dropzone">
+  <div class="dz-message">
+    <i class="material-icons">upload_file</i>
+    <p></p>
+    <span>Drop Customer Aging files here</span>
+    <br>
+    <span class="text-teal-500">or click to upload</span>
+  </div>
+  {% csrf_token %}
+</form>
+
+{% endblock %}
+{% block scripts %}
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+
+<script>
+  Dropzone.options.myDropzone = {
+    url: "customer_aging_upload", // Replace with your server endpoint
+    autoProcessQueue: true, // Set to false if you want manual uploads
+    init: function () {
+      this.on("addedfile", file => {
+        console.log("File added:", file.name);
+      });
+      this.on("success", file => {
+        console.log("Upload success:", file.name);
+      });
+      this.on("error", (file, errorMessage) => {
+        console.log("Upload error:", errorMessage);
+      });
+    }
+  };
+</script>
+{% endblock %}
