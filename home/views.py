@@ -8,7 +8,7 @@ import pandas as pd  # For CSV/Excel processing
 from datetime import datetime
 from django.db import connection
 
-def aging_upload(request):
+def button_upload(request):
     if request.method == 'POST':
         try:
             # Get the uploaded file
