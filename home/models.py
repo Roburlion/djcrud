@@ -10,7 +10,6 @@ class ButtonLog(models.Model):
             return f"{local_time:%Y-%m-%d %H:%M:%S}"
 
 class CustomerAging(models.Model):
-    uid = models.IntegerField(auto_now_add=True, primary_key=True)
     days_old = models.IntegerField()
     batch_id = models.TextField(unique=True)
     mfg_batch_id = models.IntegerField()
