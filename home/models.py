@@ -9,12 +9,14 @@ class ButtonLog(models.Model):
             local_time = timezone.localtime(self.pressed_at)
             return f"{local_time:%Y-%m-%d %H:%M:%S}"
 
+class CustomerAging(models.Model):
+    uid = models.IntegerField(auto_now_add=True, primary_key=True)
+    days_old = models.IntegerField()
+    batch_id = models.TextField(unique=True)
+    mfg_batch_id = models.IntegerField()
+    status = models.TextField()
+    order_qty = models.IntegerField()
+    page_qty = models.IntegerField()
 
-# Create your models here.
-# class Banner(models.Model):
-#     title = models.CharField(max_length=200)
-#     image = models.ImageField(upload_to='banners/')
-#     description = models.TextField()
-
-#     def __str__(self):
-#         return self.title
+    def __str__(self):
+        return f"{self.batch_id}"

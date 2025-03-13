@@ -108,7 +108,7 @@ Here is my main query so far
 The way forward to the "Hello, World!" version of this.  Something very simple.  Like uploading a series of datetimes into my existing button log model/table.  Then I can slowly expand on this before I get into anything crazy.
 
 ## 20250312 @ 2am
-The plan is to crate a new page, upload_page.html, with a dropzone and button to upload files.  Once I have the upload, I'll dump the contents into the db.
+The plan is to crate a new page, upload_button_page.html, with a dropzone and button to upload files.  Once I have the upload, I'll dump the contents into the db.
 
  - upload
  - validate
@@ -136,7 +136,7 @@ Such a pain in the ass, all of this damn CSS.
 
 ## 20250312 @ 5am
 
-Ok, I have the dropzone in /upload_page.  Now I want to dump the rows to the console.
+Ok, I have the dropzone in /upload_button_page.  Now I want to dump the rows to the console.
 
 ## 20250312 @ 7am
 
