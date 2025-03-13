@@ -9,7 +9,7 @@ from django.db import connection
 def get_customer_aging():
     return ButtonLog.objects.all().order_by('-id')[:10]
 
-def button_upload(request):
+def customer_aging_upload(request):
     if request.method == 'POST':
         try:
             # Get the uploaded file
