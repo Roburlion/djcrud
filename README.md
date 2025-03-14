@@ -151,11 +151,43 @@ The goal this morning is the be able to upload an aging file
  - New URL
  - New View
 
+## 20250314 @ 4am
 
+Complete.  I am now able to upload the aging report and store it in a model.
 
+What's next?
 
+I can go in two directions:
+   1. I can build out the WOBs view and allow comments
+   2. I can build out the assignment view and build the rolls model
+      1. I think that commenting is next as that is what really sucks about the current app.
+         1. Be able to comment on the Roll, Batch, or WOB
+            1. Use the card with tabs
+      2. Roll assignment comes with needing to be able to print out the sheet, which is it's whole can of worms.
 
+Before I do any of the above, I need to have the uploads update when there is new information.
 
+Now I have to think about what I need.  Do I want to load into a staging table and do it with sql, or do I want to do it in python?
+   1. If I do it with python, I will need to pull data from the table
+   2. If I do it in SQL, there will be two places that I am transforming the imported data
+
+What if there is a third possibility?
+
+What if I am able to include a couple extra columns, order_qty_init and page_qty_init...I don't need to, this is only for batches.
+
+This is the batches table.
+
+I do need to record the initial batch order_qty and page_qty
+
+All I need to do with this is include an "uploaded_at" datetime.
+
+## 20250314 @ 5am
+
+Now that I have the uploaded_at field, lets see if it works.
+
+Yep, working!
+
+Also have updates working.
 
 
 -------------------------------------------------------------------------------
