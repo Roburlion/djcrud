@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import ButtonLog, CustomerAging
+from .models import ButtonLog, WOBs
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 import pandas as pd
 from django.db import connection
 
 def get_customer_aging():
-    return CustomerAging.objects.all().order_by('-id')[:10]
+    return WOBs.objects.all().order_by('-id')[:10]
 
 def transform_load_customer_aging(file):
     df = pd.read_excel(file, skiprows=2, usecols="A, C:D, H:Q")
@@ -58,7 +58,7 @@ def customer_aging_upload(request):
             df = transform_load_customer_aging(uploaded_file)
             print(f"Transformed DataFrame:\n{df.head()}")
             customer_aging_records = [
-                CustomerAging(
+                WOBs(
                     wob=row['wob'],
                     batch=None if pd.isna(row['batch']) else row['batch'],
                     status=row['status'],
@@ -70,13 +70,13 @@ def customer_aging_upload(request):
                 for _, row in df.iterrows()
             ]
 
-            CustomerAging.objects.bulk_create(
+            WOBs.objects.bulk_create(
                 customer_aging_records,
                 update_conflicts=True,
                 update_fields=['batch', 'status', 'age', 'order_qty', 'page_qty', 'uploaded_at'],  # Fields to update on conflict
                 unique_fields=['wob'],  # Field(s) that define a conflict
             )
-            
+
             return JsonResponse({'success': 'Data imported successfully'})
 
         except Exception as e:
