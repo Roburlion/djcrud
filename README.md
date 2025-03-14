@@ -210,6 +210,19 @@ roll_contents
  - roll
  - batch
 
+## 20250314 @ 7am
+
+Well, it's almost 8 and time to go.  I now have, WOBs, Workflows, Rolls, RollBatches.  Everything I need.
+
+What's left
+ - Create Batches
+ - Print PDF
+ - Enter WIP
+ - View WIP
+ - View Problem Rolls/Batches
+ - Enter/view Comments
+
+Next up, build out the GUI.
 
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
