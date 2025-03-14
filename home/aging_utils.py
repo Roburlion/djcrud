@@ -7,41 +7,81 @@ import pandas as pd
 from django.db import connection
 
 def get_customer_aging():
-    return ButtonLog.objects.all().order_by('-id')[:10]
+    return CustomerAging.objects.all().order_by('-id')[:10]
+
+def transform_load_customer_aging(file):
+    df = pd.read_excel(file, skiprows=2, usecols="A, C:D, H:Q")
+    print(f"DataFrame shape: {df.shape}")
+    # List of columns to pivot
+    status_columns = [
+        "Mfg Batch Creation",
+        "Mfg Batch Create Complete",
+        "Ready for Fulfillment",
+        "Tasks in Progress",
+        "At Printer",
+        "Error in Print Tasks",
+        "Print Success",
+        "Error in Printing"
+    ]
+
+    # Replace NaN with 0 in these columns to ensure idxmax works
+    df[status_columns] = df[status_columns].fillna(0)
+
+    # Create the "status" column with the name of the column containing 1
+    df["status"] = df[status_columns].idxmax(axis=1)
+
+    # Optionally, drop the original columns if you no longer need them
+    df = df.drop(columns=status_columns)
+
+    df.columns = ["age", "wob", "batch", "order_qty", "page_qty", "status"]
+    df = df[["wob", "batch", "status", "age", "order_qty", "page_qty"]]
+
+    df.age = df.age.fillna(0)
+
+    df.order_qty = df.order_qty.fillna(1)
+
+    df['uploaded_at'] = pd.to_datetime("now", utc=True)
+
+    # df.batch = df.batch.replace(pd.NA, None)
+    # df.batch = df.batch.fillna(0).astype(int)
+
+    # output = "static\home\customer_aging_import.csv"
+    # df.to_csv(output, index=False)
+
+    return df
 
 def customer_aging_upload(request):
     if request.method == 'POST':
         try:
-            # Get the uploaded file
             uploaded_file = request.FILES.get('file')
+            print(f"Uploaded file: {uploaded_file}")
+            df = transform_load_customer_aging(uploaded_file)
+            print(f"Transformed DataFrame:\n{df.head()}")
+            customer_aging_records = [
+                CustomerAging(
+                    wob=row['wob'],
+                    batch=None if pd.isna(row['batch']) else row['batch'],
+                    status=row['status'],
+                    age=row['age'],
+                    order_qty=row['order_qty'],
+                    page_qty=row['page_qty'],
+                    uploaded_at=row['uploaded_at']
+                )
+                for _, row in df.iterrows()
+            ]
+
+            CustomerAging.objects.bulk_create(
+                customer_aging_records,
+                update_conflicts=True,
+                update_fields=['batch', 'status', 'age', 'order_qty', 'page_qty', 'uploaded_at'],  # Fields to update on conflict
+                unique_fields=['wob'],  # Field(s) that define a conflict
+            )
             
-            # Determine file type and read accordingly
-            if uploaded_file.name.endswith('.csv'):
-                df = pd.read_csv(uploaded_file)
-            elif uploaded_file.name.endswith(('.xls', '.xlsx')):
-                df = pd.read_excel(uploaded_file)
-            else:
-                return JsonResponse({'error': 'Unsupported file format'}, status=400)
-
-            # Process each row
-            for index, row in df.iterrows():
-                try:
-                    timestamp = pd.to_datetime(row['timestamp'])
-                    timestamp_str = timestamp.strftime('%Y-%m-%d %H:%M:%S')
-                    print(f"Index: {index} Row: {row} timestamp: {timestamp_str}")
-                    query = "INSERT INTO home_buttonlog (pressed_at) VALUES (%s);"
-                    with connection.cursor() as cursor:
-                        cursor.execute(query, [timestamp_str])
-                except Exception as e:
-                    print(f"Error processing row {index}: {e}")
-                    continue
-
-            return JsonResponse({
-                'status': 'success',
-                'message': f'Processed {len(df)} records'
-            })
+            return JsonResponse({'success': 'Data imported successfully'})
 
         except Exception as e:
+            print(f"Error during upload: {e}")
             return JsonResponse({'error': str(e)}, status=400)
     
     return render(request, 'your_template.html')  # Replace with your template name
+
