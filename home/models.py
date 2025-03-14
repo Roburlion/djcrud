@@ -10,12 +10,13 @@ class ButtonLog(models.Model):
             return f"{local_time:%Y-%m-%d %H:%M:%S}"
 
 class CustomerAging(models.Model):
-    days_old = models.IntegerField()
-    batch_id = models.TextField(unique=True)
-    mfg_batch_id = models.IntegerField()
+    wob = models.TextField(unique=True)
+    batch = models.IntegerField(null=True)
     status = models.TextField()
+    age = models.IntegerField()
     order_qty = models.IntegerField()
     page_qty = models.IntegerField()
+    uploaded_at = models.DateTimeField()
 
     def __str__(self):
-        return f"{self.batch_id}"
+        return f"wob: {self.wob}, batch: {self.batch}, status: {self.status}, age: {self.age}, order_qty: {self.order_qty}, page_qty: {self.page_qty}"
