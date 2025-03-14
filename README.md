@@ -189,6 +189,27 @@ Yep, working!
 
 Also have updates working.
 
+## 20250314 @ 6am
+
+What next?
+
+Need to get a batch table in here as there will be batch.
+
+What do I need to do with the batch table?  I don't need one.  The only reason that I would need one is to show initial quantities -- and I can look this up very easy!  
+
+select * from x where batch = '123'
+select * from x where batch = '123' and date = max(date_)
+
+I think I just need a rolls table.  In the rolls table I just need the ... damn, I think I do need a batches table -- but only for roll batches.
+
+rolls
+ - roll
+ - created_on
+
+roll_contents
+ - roll
+ - batch
+
 
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
