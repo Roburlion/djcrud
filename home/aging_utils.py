@@ -6,8 +6,8 @@ from django.http import JsonResponse
 import pandas as pd
 from django.db import connection
 
-def get_customer_aging():
-    return WOBs.objects.all().order_by('-id')[:10]
+def get_wobs():
+    return WOBs.objects.all()[:10]
 
 def transform_load_customer_aging(file):
     df = pd.read_excel(file, skiprows=2, usecols="A, C:D, H:Q")
@@ -41,12 +41,6 @@ def transform_load_customer_aging(file):
     df.order_qty = df.order_qty.fillna(1)
 
     df['uploaded_at'] = pd.to_datetime("now", utc=True)
-
-    # df.batch = df.batch.replace(pd.NA, None)
-    # df.batch = df.batch.fillna(0).astype(int)
-
-    # output = "static\home\customer_aging_import.csv"
-    # df.to_csv(output, index=False)
 
     return df
 
