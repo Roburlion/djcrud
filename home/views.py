@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from .utils_button import button_upload, get_button_logs, log_button, log_htmx_button
-from .utils_rocket import customer_aging_upload, get_wobs
+from .utils_rocket import upload_wobs, get_wobs
 
 def home_page(request):
     # Get updated logs
