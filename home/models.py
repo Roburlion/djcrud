@@ -50,7 +50,7 @@ class Roll(models.Model):
 
 class RollBatch(models.Model):
     roll = models.ForeignKey(Roll, on_delete=models.PROTECT, related_name='roll_batches')
-    batch = models.IntegerField()
+    batch = models.CharField(max_length=9, blank=True, null=False, default='')
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
