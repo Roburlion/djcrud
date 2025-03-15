@@ -10,5 +10,5 @@ urlpatterns = [
     path('rolls_page', views.rolls_page, name='rolls_page'),
     # APIs
     path('button_upload', views.button_upload, name='button_upload'),
-    path('customer_aging_upload', views.customer_aging_upload, name='customer_aging_upload'),
+    path('upload_wobs', views.upload_wobs, name='upload_wobs'),
 ]
