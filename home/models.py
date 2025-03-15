@@ -19,7 +19,7 @@ class WOBs(models.Model):
     uploaded_at = models.DateTimeField()
 
     def __str__(self):
-        return f"wob: {self.wob}, batch: {self.batch}, status: {self.status}, age: {self.age}, order_qty: {self.order_qty}, page_qty: {self.page_qty}"
+        return f"wob: {self.wob}, batch: {self.batch}, status: {self.status}, age: {self.age}, order_qty: {self.order_qty}, page_qty: {self.page_qty}, uploaded_at: {self.uploaded_at}"
 
 class Workflow(models.Model):
     workflow = models.CharField(primary_key=True, max_length=16)
