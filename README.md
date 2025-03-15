@@ -224,6 +224,69 @@ What's left
 
 Next up, build out the GUI.
 
+## 20250314 @ 6pm
+
+Slightly intoxicated and ready to go!
+
+What's next?
+
+I've got my data and models in here and I think I'm ready to start building out ... what?
+
+I have some data, let's take a look at it.
+
+page to show WOBs, only the most recent update.
+
+Different tabs on one page?  Maybe, maybe not.  What would the different tabs be?  The different filters?  No, don't have solutions looking for problems.
+
+What is the simplest thing that I can come up with?
+
+Three tables all on the same page.  I'm too tired.  Lets go take a look at the components.
+
+## 20250315 @ 5am
+
+What am I doing this morning?
+
+Can now upload WOBs, what next?
+
+I want to see the wobs
+
+Then I will need a form
+
+If I was showing this, what would I add?
+
+I would show roll creation
+
+### Roll Creation
+ - Add new batches that already exist
+   - This is a query to populate rolls that have not been assigned to a roll yet and are big enough to be put on a roll
+     - Filter out already assigned batches
+     - Filter out small MH batches
+     - Filter out small BOC batches
+ - Reprint batches that have already been added to a roll
+   - Filter on batches that are assigned to other rolls
+ - Add batches that have not come over from CNC
+   - A form to enter in the important information
+   - A place to paste in a copy from batch creation
+
+ - I also need a place that will show roll sheets that need to be updated
+
+Build it around a table/accordion of rolls
+
+## 20250315 @ 6am
+
+Create Rolls site
+ - add in a table of rolls
+   - pre-populate with some roll definitions
+
+Next steps
+ - Create page
+   - rolls
+ - Add to views
+ - Add to urls
+ - Add to navbar
+
+Done, I now have a blank rolls page.
+
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
