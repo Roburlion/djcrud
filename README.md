@@ -287,6 +287,21 @@ Next steps
 
 Done, I now have a blank rolls page.
 
+## 20250315 @ 6am
+
+Now I need a fragment, or do I?
+ - not for now
+
+Next up
+ - add a table
+ - add a form
+
+I've got to wire it up
+
+## 20250315 @ 10am
+
+Spent 4 hours refactoring
+
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
