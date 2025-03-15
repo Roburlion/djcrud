@@ -19,3 +19,6 @@ def upload_button_page(request):
 
 def upload_aging_page(request):
     return render(request, 'home/upload_aging_page.html')
+
+def rolls_page(request):
+    return render(request, 'home/rolls_page.html')
