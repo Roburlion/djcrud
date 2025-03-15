@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import ButtonLog, WOB
+from .models import WOB, Roll, Workflow, RollBatch
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 import pandas as pd
@@ -8,6 +8,15 @@ from django.db import connection
 
 def get_wobs():
     return WOB.objects.all()[:10]
+
+def get_rolls():
+    return Roll.objects.all()[:10]
+
+def get_workflows():
+    return Workflow.objects.all()[:10]
+
+def get_roll_batches():
+    return RollBatch.objects.all()[:10]
 
 def transform_customer_aging(file):
     # Read Excel file
