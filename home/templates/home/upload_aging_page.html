@@ -52,7 +52,7 @@
 
 
 
-<form action="customer_aging_upload" class="dropzone" id="my-dropzone">
+<form action="upload_wobs" class="dropzone" id="my-dropzone">
   <div class="dz-message">
     <i class="material-icons">upload_file</i>
     <p></p>
@@ -69,7 +69,7 @@
 
 <script>
   Dropzone.options.myDropzone = {
-    url: "customer_aging_upload", // Replace with your server endpoint
+    url: "upload_wobs", // Replace with your server endpoint
     autoProcessQueue: true, // Set to false if you want manual uploads
     init: function () {
       this.on("addedfile", file => {
