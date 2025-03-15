@@ -1,11 +1,9 @@
 from django.contrib import admin
-from .models import ButtonLog, WOBs, Workflow, Rolls, RollBatches
+from .models import ButtonLog, WOB, Workflow, Roll, RollBatch
+
 admin.site.register(ButtonLog)
 
-@admin.register(WOBs)
-class WOBsAdmin(admin.ModelAdmin):
-    verbose_name_plural = "WOBs"  # Ensures it displays as "WOBs" instead of "Wo bss"
-
+admin.site.register(WOB)
 admin.site.register(Workflow)
-admin.site.register(Rolls)
-admin.site.register(RollBatches)
+admin.site.register(Roll)
+admin.site.register(RollBatch)
